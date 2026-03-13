@@ -36,8 +36,10 @@ export default function LoginPage() {
         return;
       }
 
-      router.push("/dashboard");
-      router.refresh();
+      setTimeout(() => {
+        router.replace("/dashboard");
+        router.refresh();
+      }, 100);
     } catch (err) {
       console.error(err);
       alert("Something went wrong");
