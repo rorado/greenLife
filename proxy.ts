@@ -23,6 +23,14 @@ export function proxy(req: NextRequest) {
       return NextResponse.redirect(url);
     }
   }
+  if (url.pathname === "/login" || url.pathname === "/signup") {
+    const token = req.cookies.get("token")?.value;
+
+    if (token) {
+      url.pathname = "/dashboard";
+      return NextResponse.redirect(url);
+    }
+  }
 
   return NextResponse.next();
 }

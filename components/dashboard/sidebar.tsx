@@ -52,7 +52,7 @@ export function DashboardSidebar() {
     : "??";
 
   return (
-    <aside className="w-64 bg-sidebar text-sidebar-foreground flex flex-col shrink-0 md:flex">
+    <aside className="w-64 bg-sidebar text-sidebar-foreground flex flex-col shrink-0 md:flex h-full ">
       <div className="p-6 flex items-center gap-3">
         <Link href="/" className="flex items-center gap-3">
           <div className="bg-sidebar-accent p-2 rounded-lg">

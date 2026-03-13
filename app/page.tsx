@@ -13,15 +13,16 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { User } from "@/src/generated/prisma/client";
 
 export default function LandingPage() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setIsLoggedIn(true);
-    }
+    fetch("/api/user")
+      .then((res) => res.json())
+      .then((data) => setUser(data))
+      .catch((err) => console.error(err));
   }, []);
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -43,7 +44,6 @@ export default function LandingPage() {
           >
             Home
           </button>
-          {isLoggedIn && <Link href="/dashboard">Dashboard</Link>}
           <Link href="/dashboard/weather">Weather</Link>
           <Link href="/dashboard/recommendations">Crop Recommendations</Link>
           <button
@@ -62,7 +62,11 @@ export default function LandingPage() {
           variant="secondary"
           className="bg-white text-primary hover:bg-white/90"
         >
-          <Link href="/register">Sign Up</Link>
+          {user ? (
+            <Link href="/dashboard">Go to Dashboard</Link>
+          ) : (
+            <Link href="/login">Login / Sign Up</Link>
+          )}
         </Button>
       </nav>
 
