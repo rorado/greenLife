@@ -41,6 +41,7 @@ export default function LoginPage() {
       alert("Something went wrong");
       setLoading(false);
     }
+    setLoading(false);
   };
 
   return (
