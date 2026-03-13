@@ -55,7 +55,7 @@ export default function LoginPage() {
           </div>
           <h1 className="text-2xl font-bold">Welcome Back</h1>
           <p className="text-muted-foreground mt-2">
-            Sign in to your AgriSmart account
+            Sign in to your GreenLife account
           </p>
         </div>
 

@@ -29,7 +29,7 @@ export default function LandingPage() {
         <div className="flex items-center gap-2">
           <Leaf className="h-7 w-7" />
           <h2 className="text-xl font-bold leading-tight tracking-tight">
-            AgriSmart
+            GreenLife
           </h2>
         </div>
         <div className="hidden md:flex items-center gap-8">
@@ -119,7 +119,7 @@ export default function LandingPage() {
         <section className="bg-card py-20 px-4 md:px-20 lg:px-40">
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col gap-4">
             <h2 className="text-3xl md:text-4xl font-bold text-balance">
-              Why Choose AgriSmart?
+              Why Choose GreenLife?
             </h2>
             <p className="text-muted-foreground text-lg">
               Our platform leverages advanced AI and satellite imagery to
@@ -166,7 +166,7 @@ export default function LandingPage() {
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2 text-primary">
               <Leaf className="h-7 w-7" />
-              <h2 className="text-xl font-bold leading-tight">AgriSmart</h2>
+              <h2 className="text-xl font-bold leading-tight">GreenLife</h2>
             </div>
             <p className="text-muted-foreground text-sm">
               Empowering the next generation of farmers with AI and real-time

@@ -25,7 +25,6 @@ const navItems = [
     label: "Recommendations",
     icon: Sprout,
   },
-  { href: "/dashboard/reports", label: "Yield Reports", icon: BarChart3 },
 ];
 
 interface User {
@@ -53,18 +52,18 @@ export function DashboardSidebar() {
     : "??";
 
   return (
-    <aside className="w-64 bg-sidebar text-sidebar-foreground flex flex-col flex-shrink-0 hidden md:flex">
+    <aside className="w-64 bg-sidebar text-sidebar-foreground flex flex-col shrink-0 md:flex">
       <div className="p-6 flex items-center gap-3">
         <div className="bg-sidebar-accent p-2 rounded-lg">
           <Leaf className="h-5 w-5" />
         </div>
-        <span className="text-xl font-extrabold tracking-tight">AgriSmart</span>
+        <span className="text-xl font-extrabold tracking-tight">GreenLife</span>
       </div>
 
       <nav className="flex-1 px-4 py-4 space-y-2">
         {navItems.map((item) => {
           const isActive =
-            pathname === item.href || pathname.startsWith(item.href + "/");
+            pathname === item.href || pathname == item.href + "/";
           return (
             <Link
               key={item.href}

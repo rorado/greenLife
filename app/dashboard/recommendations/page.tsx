@@ -133,7 +133,7 @@ export default function RecommendationsPage() {
             <Leaf className="h-5 w-5" />
           </div>
           <h2 className="text-xl font-bold leading-tight tracking-tight">
-            AgriSmart
+            GreenLife
           </h2>
         </div>
         <div className="flex flex-1 justify-end gap-4 items-center">
@@ -336,7 +336,7 @@ export default function RecommendationsPage() {
             <div className="col-span-2 flex flex-col items-end">
               <div className="flex items-center gap-2 text-primary mb-4">
                 <Leaf className="h-5 w-5" />
-                <span className="font-bold text-lg">AgriSmart</span>
+                <span className="font-bold text-lg">GreenLife</span>
               </div>
               <p className="text-sm text-muted-foreground">
                 Empowering farmers with AI-driven precision agriculture.
