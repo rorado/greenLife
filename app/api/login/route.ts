@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { redirect } from "next/navigation";
 
 const JWT_SECRET = process.env.JWT_SECRET || "supersecret";
 export async function POST(req: Request) {
@@ -47,7 +48,10 @@ export async function POST(req: Request) {
       maxAge: 60 * 60 * 24 * 7, // 7 days
     });
 
-    return response;
+    return (
+      NextResponse.json({ message: "Logged in", status: 200 }),
+      redirect("/dashboard")
+    );
   } catch (err) {
     console.error(err);
     return NextResponse.json(
