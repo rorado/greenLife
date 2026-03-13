@@ -47,7 +47,7 @@ export async function POST(req: Request) {
       maxAge: 60 * 60 * 24 * 7, // 7 days
     });
 
-    return NextResponse.json({ message: "Logged in", status: 200 });
+    return response;
   } catch (err) {
     console.error(err);
     return NextResponse.json(
