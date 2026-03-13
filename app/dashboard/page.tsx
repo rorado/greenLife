@@ -209,14 +209,10 @@ export default function DashboardPage() {
         </p>
       )}
 
-      {aiAnalysis && aiAnalysis.plants?.length > 0 ? (
+      {aiAnalysis && aiAnalysis.plants?.length > 0 && (
         <div className="mb-8">
           <PlantChart plants={aiAnalysis.plants} />
         </div>
-      ) : (
-        <p className="text-center text-muted-foreground">
-          Loading plant recommendations...
-        </p>
       )}
     </div>
   );
