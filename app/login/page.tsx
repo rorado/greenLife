@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { Leaf, Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export default function LoginPage() {
-  const router = useRouter();
+  // const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -36,9 +36,7 @@ export default function LoginPage() {
         return;
       }
 
-      setTimeout(() => {
-        router.replace("/dashboard");
-      }, 1000);
+      window.location.href = "/dashboard";
     } catch (err) {
       console.error(err);
       alert("Something went wrong");
