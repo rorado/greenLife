@@ -39,7 +39,7 @@ export default function LoginPage() {
       setTimeout(() => {
         router.replace("/dashboard");
         router.refresh();
-      }, 100);
+      }, 3000);
     } catch (err) {
       console.error(err);
       alert("Something went wrong");
