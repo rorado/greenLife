@@ -159,13 +159,6 @@ export default function RecommendationsPage() {
                 )}
               </p>
             </div>
-            <Button
-              asChild
-              variant="secondary"
-              className="bg-white text-[#858a20] hover:bg-white/90 shrink-0"
-            >
-              <Link href="/recommendations/analysis">View Full Analysis</Link>
-            </Button>
           </CardContent>
         </Card>
 
@@ -236,12 +229,6 @@ export default function RecommendationsPage() {
                   <Calendar className="h-4 w-4" />
                   {crop.season}
                 </div>
-                <Button asChild className="w-full" variant="secondary">
-                  <Link href={`dashboard/crops/${crop.id}`}>
-                    View Details
-                    <ChevronRight className="h-4 w-4 ml-1" />
-                  </Link>
-                </Button>
               </CardContent>
             </Card>
           ))}

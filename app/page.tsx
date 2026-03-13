@@ -33,11 +33,29 @@ export default function LandingPage() {
           </h2>
         </div>
         <div className="hidden md:flex items-center gap-8">
-          <Link href="/">Home</Link>
+          <button
+            className="cursor-pointer"
+            onClick={() => {
+              document.getElementById("hero")?.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
+          >
+            Home
+          </button>
           {isLoggedIn && <Link href="/dashboard">Dashboard</Link>}
           <Link href="/dashboard/weather">Weather</Link>
           <Link href="/dashboard/recommendations">Crop Recommendations</Link>
-          <Link href="/about">About</Link>
+          <button
+            className="cursor-pointer"
+            onClick={() => {
+              document.getElementById("about")?.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
+          >
+            About
+          </button>
         </div>
         <Button
           asChild
@@ -48,7 +66,7 @@ export default function LandingPage() {
         </Button>
       </nav>
 
-      <main className="flex-1">
+      <main id="hero" className="flex-1">
         <section className="px-4 md:px-20 lg:px-40 py-12 md:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="flex flex-col gap-8">
@@ -156,6 +174,88 @@ export default function LandingPage() {
                 AI models that suggest the most profitable and sustainable crops
                 based on soil health and market trends.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="px-4 md:px-20 lg:px-40 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <div className="w-full aspect-square rounded-3xl bg-muted overflow-hidden shadow-2xl">
+                <img
+                  src="https://harvesttotable.com/wp-content/uploads/2023/04/Cold-frame-sashes-up.jpg"
+                  alt="Team working on sustainable agriculture solutions"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-4">
+                <span className="text-primary font-bold tracking-widest text-xs uppercase bg-primary/10 w-fit px-3 py-1 rounded-full">
+                  About GreenLife
+                </span>
+                <h2 className="text-4xl md:text-5xl font-extrabold leading-[1.2] tracking-tight text-balance">
+                  Transforming Agriculture Through Innovation
+                </h2>
+                <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
+                  GreenLife was founded with a mission to bridge the gap between
+                  traditional farming practices and modern agricultural
+                  technology. Our team of agronomists, data scientists, and
+                  environmental experts work together to create tools that help
+                  farmers make smarter decisions.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary/10 text-primary">
+                      <Leaf className="h-6 w-6" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold mb-2">
+                      Sustainability First
+                    </h3>
+                    <p className="text-muted-foreground">
+                      We believe in promoting sustainable farming practices that
+                      protect the environment for future generations.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary/10 text-primary">
+                      <Brain className="h-6 w-6" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold mb-2">
+                      Data-Driven Decisions
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Our AI models analyze real-time data from weather, soil,
+                      and market trends to provide actionable insights.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary/10 text-primary">
+                      <TrendingUp className="h-6 w-6" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold mb-2">
+                      Increased Profitability
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Help farmers maximize their yield and profitability while
+                      minimizing resource waste.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
