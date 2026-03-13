@@ -1,51 +1,46 @@
 // app/api/user/route.ts
+
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import jwt from "jsonwebtoken";
+import { cookies } from "next/headers";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
-    // Get the cookie header
-    const cookieHeader = req.headers.get("cookie") || "";
+    const cookieStore = await cookies();
+    const token = cookieStore.get("token")?.value;
 
-    // Extract JWT from cookies (assuming your cookie name is 'token')
-    const tokenMatch = cookieHeader
-      .split(";")
-      .map((c) => c.trim())
-      .find((c) => c.startsWith("token="));
-
-    if (!tokenMatch) {
-      return NextResponse.json({ error: "No token found" }, { status: 401 });
+    if (!token) {
+      return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
     }
 
-    const token = tokenMatch.split("=")[1];
-
-    // Verify JWT
     let payload: any;
+
     try {
       payload = jwt.verify(token, JWT_SECRET);
-    } catch (err) {
+    } catch {
       return NextResponse.json({ error: "Invalid token" }, { status: 401 });
     }
 
-    const userId = payload.userId;
-
     const user = await prisma.user.findUnique({
-      where: { id: userId },
+      where: { id: payload.userId },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+      },
     });
 
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
-
+    console.log("Authenticated user:", user);
     return NextResponse.json(user);
-  } catch (err) {
-    console.error(err);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 },
-    );
+  } catch (error) {
+    console.error(error);
+
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }

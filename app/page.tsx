@@ -17,12 +17,15 @@ import { User } from "@/src/generated/prisma/client";
 
 export default function LandingPage() {
   const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch("/api/user")
       .then((res) => res.json())
       .then((data) => setUser(data))
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
   }, []);
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -62,7 +65,7 @@ export default function LandingPage() {
           variant="secondary"
           className="bg-white text-primary hover:bg-white/90"
         >
-          {user ? (
+          {user && !loading ? (
             <Link href="/dashboard">Go to Dashboard</Link>
           ) : (
             <Link href="/login">Login / Sign Up</Link>
@@ -92,14 +95,6 @@ export default function LandingPage() {
                     Start Farming Smart
                     <ArrowRight className="h-4 w-4" />
                   </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="secondary"
-                  className="shadow-lg"
-                >
-                  <Link href="/recommendations">View Recommendations</Link>
                 </Button>
               </div>
               <div className="flex items-center gap-6 pt-4">
