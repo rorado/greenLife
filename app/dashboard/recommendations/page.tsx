@@ -127,31 +127,6 @@ export default function RecommendationsPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="flex items-center justify-between border-b bg-card px-6 lg:px-20 py-4 sticky top-0 z-50">
-        <div className="flex items-center gap-4 text-primary">
-          <div className="h-8 w-8 flex items-center justify-center bg-primary/10 rounded-lg">
-            <Leaf className="h-5 w-5" />
-          </div>
-          <h2 className="text-xl font-bold leading-tight tracking-tight">
-            GreenLife
-          </h2>
-        </div>
-        <div className="flex flex-1 justify-end gap-4 items-center">
-          <div className="hidden md:flex relative max-w-64">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Search crops, soil types..."
-              className="pl-10"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
-          <Button variant="ghost" size="icon">
-            <Bell className="h-5 w-5" />
-          </Button>
-          <div className="h-10 w-10 rounded-full bg-muted border-2 border-primary/20" />
-        </div>
-      </header>
 
       <main className="px-6 lg:px-20 py-8 max-w-7xl mx-auto w-full">
         {/* Title */}

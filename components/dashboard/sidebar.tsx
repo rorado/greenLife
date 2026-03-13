@@ -54,10 +54,14 @@ export function DashboardSidebar() {
   return (
     <aside className="w-64 bg-sidebar text-sidebar-foreground flex flex-col shrink-0 md:flex">
       <div className="p-6 flex items-center gap-3">
-        <div className="bg-sidebar-accent p-2 rounded-lg">
-          <Leaf className="h-5 w-5" />
-        </div>
-        <span className="text-xl font-extrabold tracking-tight">GreenLife</span>
+        <Link href="/" className="flex items-center gap-3">
+          <div className="bg-sidebar-accent p-2 rounded-lg">
+            <Leaf className="h-5 w-5" />
+          </div>
+          <span className="text-xl font-extrabold tracking-tight">
+            GreenLife
+          </span>
+        </Link>
       </div>
 
       <nav className="flex-1 px-4 py-4 space-y-2">
@@ -83,14 +87,6 @@ export function DashboardSidebar() {
       </nav>
 
       <div className="p-4 mt-auto border-t border-sidebar-border">
-        <Link
-          href="/settings"
-          className="flex items-center gap-3 px-4 py-3 rounded-xl text-sidebar-foreground/80 hover:bg-sidebar-accent/50 transition-colors"
-        >
-          <Settings className="h-5 w-5" />
-          <span className="font-medium">Settings</span>
-        </Link>
-
         {/* User info from DB */}
         <div className="flex items-center gap-3 p-2 mt-4">
           <div className="w-10 h-10 rounded-full bg-sidebar-accent flex items-center justify-center">
